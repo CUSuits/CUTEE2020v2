@@ -10,7 +10,7 @@ using SimpleJSON;
 
 
 //main class task manager, initialze link to json url and update the incoming data
-public class TaskManager : MonoBehaviour
+public class JSONManager : MonoBehaviour
 {       //datacontroller
 
     public string j_url = "http://nova-eva-support-cutee2020.herokuapp.com/api/simulation/state";
