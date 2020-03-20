@@ -1,0 +1,296 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &361602994639854639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3038920584246635092}
+  - component: {fileID: 351419746262651506}
+  - component: {fileID: 7002506473282653672}
+  - component: {fileID: 7002506473282653673}
+  - component: {fileID: 7002506473282653674}
+  - component: {fileID: 7002506473282653677}
+  m_Layer: 0
+  m_Name: Planner_Scripts_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3038920584246635092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361602994639854639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &351419746262651506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361602994639854639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61216f7ebb9d3c7458d8aef10d27ae36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stt: {fileID: 0}
+  got: {fileID: 0}
+  pathfinding: 0
+  re_init: 0
+  mass: 150
+  g: 1.635
+  moon: {fileID: 0}
+  cone: {fileID: 0}
+  line: {fileID: 0}
+  N: 50000
+  R: 1.5
+  max_slope: 15
+  isComplete: 0
+  obstacles:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &7002506473282653672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361602994639854639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ac51a88a8d9334088d99540d7987fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  Target: {fileID: 0}
+  moon: {fileID: 0}
+--- !u!114 &7002506473282653673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361602994639854639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ee1d9f8dceca642936bd6195d1772f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Agents_info: Agents are EVA/IVA astronauts or teleoperated/semi-autonomous robots
+    /n Please enter number of agents, NAMES, unuque ID and provide the gameObjects
+    for each
+  agents:
+  - name: EVA Astronaut 1
+    id: 0
+    isBusy: 0
+    go: {fileID: 0}
+    location:
+      name: 
+      id: 0
+      location: {x: 0, y: 0, z: 0}
+      isWalkBack: 0
+      go: {fileID: 0}
+  - name: IVA Astronaut 1
+    id: 1
+    isBusy: 0
+    go: {fileID: 0}
+    location:
+      name: 
+      id: 0
+      location: {x: 0, y: 0, z: 0}
+      isWalkBack: 0
+      go: {fileID: 0}
+  landmarks_info: Landmarks are locations of interest to be visited
+  landmarks:
+  - name: Hab
+    id: 0
+    location: {x: 0, y: 0, z: 0}
+    isWalkBack: 0
+    go: {fileID: 0}
+  - name: Rover_Site
+    id: 1
+    location: {x: 0, y: 0, z: 0}
+    isWalkBack: 0
+    go: {fileID: 0}
+  - name: Science_site
+    id: 2
+    location: {x: 0, y: 0, z: 0}
+    isWalkBack: 0
+    go: {fileID: 0}
+  tasks_info: "Each task has pre-conditions: agents locations and task states proir
+    to the action \n Each task has a pst-condition task states \n use -1 for independent
+    state"
+  Tasklist:
+  - name: Suit Prep
+    precondition_locations: 0000000000000000
+    precondition_tasks: 000000000000000000000000000000000000000000000000000000000000000000000000
+    postcondition_tasks: 010000000000000000000000000000000000000000000000000000000000000000000000
+    costs:
+      met_cost: 100
+      time_elapsed: 100
+      isSafe: 1
+  - name: Pick Up SCI Equipment
+    precondition_locations: 0000000000000000
+    precondition_tasks: 0100000000000000ffffffffffffffffffffffff00000000000000000000000000000000
+    postcondition_tasks: 0100000001000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    costs:
+      met_cost: 10
+      time_elapsed: 1
+      isSafe: 1
+  - name: Pick up GEO equipment
+    precondition_locations: 0000000000000000
+    precondition_tasks: 01000000ffffffff00000000ffffffffffffffff00000000000000000000000000000000
+    postcondition_tasks: 01000000ffffffff01000000ffffffffffffffffffffffffffffffffffffffffffffffff
+    costs:
+      met_cost: 10
+      time_elapsed: 1
+      isSafe: 1
+  - name: Pick up Repair tool-kit
+    precondition_locations: 0000000000000000
+    precondition_tasks: 01000000ffffffffffffffff00000000ffffffff00000000000000000000000000000000
+    postcondition_tasks: 01000000ffffffffffffffff01000000ffffffffffffffffffffffffffffffffffffffff
+    costs:
+      met_cost: 10
+      time_elapsed: 1
+      isSafe: 1
+  - name: Pick up Diagnosis tool
+    precondition_locations: 0000000000000000
+    precondition_tasks: 01000000ffffffffffffffffffffffff0000000000000000000000000000000000000000
+    postcondition_tasks: 01000000ffffffffffffffffffffffff01000000ffffffffffffffffffffffffffffffff
+    costs:
+      met_cost: 10
+      time_elapsed: 1
+      isSafe: 1
+  - name: ROVER REPAIR
+    precondition_locations: 0100000000000000
+    precondition_tasks: 01000000ffffffffffffffff01000000010000000000000000000000ffffffffffffffff
+    postcondition_tasks: 01000000ffffffffffffffff01000000010000000100000000000000ffffffffffffffff
+    costs:
+      met_cost: 100
+      time_elapsed: 100
+      isSafe: 1
+  - name: Rover Diagnosis
+    precondition_locations: 0100000000000000
+    precondition_tasks: 01000000ffffffffffffffff01000000010000000100000000000000ffffffffffffffff
+    postcondition_tasks: 01000000ffffffffffffffffffffffffffffffff0100000001000000ffffffffffffffff
+    costs:
+      met_cost: 100
+      time_elapsed: 100
+      isSafe: 1
+  - name: Deploy SCI equipment
+    precondition_locations: 0200000000000000
+    precondition_tasks: 010000000100000001000000ffffffffffffffffffffffffffffffff00000000ffffffff
+    postcondition_tasks: 010000000100000001000000ffffffffffffffffffffffffffffffff01000000ffffffff
+    costs:
+      met_cost: 100
+      time_elapsed: 100
+      isSafe: 1
+  - name: Collect GEO Samples
+    precondition_locations: 0200000000000000
+    precondition_tasks: 010000000100000001000000ffffffffffffffffffffffffffffffffffffffff00000000
+    postcondition_tasks: 010000000100000001000000ffffffffffffffffffffffffffffffffffffffff01000000
+    costs:
+      met_cost: 100
+      time_elapsed: 100
+      isSafe: 1
+  start_node:
+    locations_id: 0000000000000000
+    tasks: 000000000000000000000000000000000000000000000000000000000000000000000000
+    met: 0
+    t: 0
+    pre_action: 
+  end_node:
+    locations_id: 0000000000000000
+    tasks: 01000000ffffffffffffffffffffffffffffffff01000000010000000100000001000000
+    met: 0
+    t: 0
+    pre_action: 
+  nbst:
+    locations_id: 
+    tasks: 
+    met: 0
+    t: 0
+    pre_action: 
+  st_cpoy:
+    locations_id: 
+    tasks: 
+    met: 0
+    t: 0
+    pre_action: 
+--- !u!114 &7002506473282653674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361602994639854639}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acd67b9280b07049b68614f3a7b4535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stt: {fileID: 0}
+  got: {fileID: 0}
+  pathfinding: 1
+  re_init: 0
+  mass: 150
+  g: 1.6350001
+  moon: {fileID: 0}
+  cone: {fileID: 0}
+  line: {fileID: 0}
+  N: 5000
+  R: 20
+  max_slope: 10
+  isComplete: 0
+  obstacles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tl: {fileID: 0}
+  br: {fileID: 0}
+--- !u!114 &7002506473282653677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361602994639854639}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4240ff565d89e3c438c64bd8972a2f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stt: {fileID: 0}
+  got: {fileID: 0}
+  pathfinding: 1
+  re_init: 0
+  mass: 150
+  g: 1.6350001
+  moon: {fileID: 0}
+  cone: {fileID: 0}
+  line: {fileID: 0}
+  N: 5000
+  R: 1
+  max_slope: 10
+  isComplete: 0
+  obstacles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tl: {fileID: 0}
+  br: {fileID: 0}
+  h_scale: 0
