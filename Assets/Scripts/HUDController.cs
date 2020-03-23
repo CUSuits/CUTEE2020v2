@@ -9,7 +9,7 @@ public class HUDController : MonoBehaviour
 {
     
     
-    public TaskManager taskManager;//holds  "dataController"
+    public JSONManager jsonmanager;//holds  "dataController"
     
 
 
@@ -53,7 +53,7 @@ public class HUDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        taskboard = taskManager.taskboard;
+        taskboard = jsonmanager.taskboard;
         current_T = taskboard["tasks"][Task_index];
         current_P = taskboard["tasks"][Task_index]["children"][Procedure_index];
         current_S = taskboard["tasks"][Task_index]["children"][Procedure_index]["children"][Step_index];
@@ -117,29 +117,22 @@ public class HUDController : MonoBehaviour
     
     void Update()
     {
-        taskboard = taskManager.taskboard;
-        suit_rep = taskManager.suit_rep;
+
+        // Access the Tasklist (stored in JSONManajer script - taskboard)
+        taskboard = jsonmanager.taskboard;
+        suit_rep = jsonmanager.suit_rep;
+
+        //update current task/step/procedure based on the step
         current_T = taskboard["tasks"][Task_index];
         current_P = taskboard["tasks"][Task_index]["children"][Procedure_index];
         current_S = taskboard["tasks"][Task_index]["children"][Procedure_index]["children"][Step_index];
         current_SS = taskboard["tasks"][Task_index]["children"][Procedure_index]["children"][Step_index]["children"];
-        //var procedure_text = Procedure_canvas.GetComponent<Text>();
-        //var step_text = Step_canvas.GetComponent<Text>();
-        //var time_text = time_canvas.GetComponent<Text>();
+        
+        //reflect the updates on the HUD
         var time_rem = suit_rep[0];
-
-        //ttl.text = time_rem["t_oxygen"] + " "  + current_T["name"] + "- Current Step:  " + (Procedure_index + 1) + ". " + current_P["name"] + " - " + (Procedure_index + 1) + "." + (Step_index + 1) + ".  " + current_S["name"];
-        //for (var ii = 0; ii < current_SS.Count; ii++)//  stp in current_SS)
-        //{
-        //var stp = current_SS[ii]["action_object"] + " " + current_SS[ii]["condition"];
-
-        //            txb.text = txb.text + " \n " + stp;
-        //Debug.Log(current_SS.Count);
-        //      }
-        //Debug.Log(procedure_text.text);
         Procedure_canvas.text = current_P["name"] + "\n\n\n\n\n";
         Step_canvas.text = current_S["name"] + "\n\n\n\n\n";
-        time_canvas.text = time_rem["t_oxygen"];
+        time_canvas.text = "Time Remaining" + time_rem["t_oxygen"];
 
 
 
@@ -151,6 +144,8 @@ public class HUDController : MonoBehaviour
 
 
 
+
+    
 
     void OnGUI()
     {
